@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web自动化 - 弹出对话框</title>
+</head>
+<script>
+
+function appendEle(info) {
+    var node = document.createElement("LI");
+    var textNode = document.createTextNode(info);
+    node.appendChild(textNode);
+    document.getElementById("add").appendChild(node);
+}
+
+function clickResponse() {
+    if (confirm("你要学习selenium吗？") == true) {
+        appendEle("确定");
+    } else {
+        appendEle("取消操作");
+    }
+}
+
+
+function clickPrompt() {
+    var PythonCourse = prompt("请输入你想学习的课程", "Python基础");
+
+    if (PythonCourse == null ) {
+        appendEle("取消操作");
+    } else {
+        appendEle("你想学习:" + PythonCourse);
+    }
+}
+
+</script>
+<body>
+
+<br>
+<br>
+<button id="b1" onclick='alert("打开一个alert弹出框!");'>alert</button>
+
+<br>
+<br>
+<button id="b2" onclick='clickResponse()'>confirm</button>
+
+<br>
+<br>
+<button id="b3" onclick='clickPrompt()'>prompt</button>
+
+<div id="add"></div>
+</body>
+</html>
